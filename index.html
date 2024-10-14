@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>The sun and The Planets</title>
+    <h1 style="text-align: center; color: #f9f9f9;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 10px;text-shadow: 0 0 10px rgba(18, 189, 232, 0.875), 0 0 20px rgba(23, 89, 196, 0.6);font-size: 2.5em;">The Sun and The Planets</h1> <!-- Main heading -->
+
+</head>
+<body>
+    <div class="container">
+        <div class="celestial-body sun" onclick="showInfo('sun')" >
+            <img src="sun2-modified.png" alt="Sun">
+            <span class="planet-name">Sun</span>
+            <div class="info" id="sun-info"></div> <!-- Placeholder for Sun info -->
+        </div>
+        <div class="celestial-body mercury" onclick="showInfo('mercury')">
+            <img src="mercury1-modified.png" alt="Mercury">
+            <span class="planet-name">Mercury</span>
+        </div>
+        <div class="celestial-body venus" onclick="showInfo('venus')">
+            <img src="venus-modified.png" alt="Venus">
+            <span class="planet-name">Venus</span>
+        </div>
+        <div class="celestial-body earth" onclick="showInfo('earth')">
+            <img src="earth-modified.png" alt="Earth">
+            <span class="planet-name">Earth</span>
+        </div>
+        <div class="celestial-body mars" onclick="showInfo('mars')">
+            <img src="mars-modified.png" alt="Mars">
+            <span class="planet-name">Mars</span>
+        </div>
+        <div class="celestial-body jupiter" onclick="showInfo('jupiter')">
+            <img src="jupiter-modified.png" alt="Jupiter">
+            <span class="planet-name">Jupiter</span>
+        </div>
+        <div class="celestial-body saturn" onclick="showInfo('saturn')">
+            <img src="saturn-modified.png" alt="Saturn">
+            
+        </div>
+        <div class="celestial-body uranus" onclick="showInfo('uranus')">
+            <img src="uranus-modified.png" alt="Uranus">
+            <span class="Uranus">Uranus</span>
+        </div>
+        <div class="celestial-body neptune" onclick="showInfo('neptune')">
+            <img src="neptune-modified.png" alt="Neptune">
+            <span class="planet-name">Neptune</span>
+        </div>
+    </div>
+    <p style="text-align: center; color: #b7e2f8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 1em; margin-bottom: 1px;">
+        Click on any planet or the sun to learn more!
+    </p>
+
+<!-- Section for weight calculation -->
+<div id="weight-section" style="text-align: center; margin-top: 50px;">
+    <h3 style="text-align: center; color: #fff; margin-bottom: 10px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-shadow: 0 0 10px rgba(18, 189, 232, 0.875), 0 0 20px rgba(3, 16, 79, 0.6);font-size: 2em;">Cosmic Calculations: </h3>
+    <h4 style="text-align: center; color: #fff; margin-bottom: 10px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-shadow: 0 0 10px rgba(18, 189, 232, 0.875), 0 0 20px rgba(3, 16, 79, 0.6);font-size: 1em;">Find Out How Much You'd Weigh Across the Solar System!</h4>
+    </h1> <!-- Main heading -->
+    
+    <input type="number" id="earth-weight" placeholder="Weight on Earth (kg)" style="padding: 10px; border: 2px solid #f9f7f7; border-radius: 5px; width: 250px; margin-bottom: 10px;"/>
+        <select id="planet-select" style="padding: 10px; border: 2px solid #d7e3e6; border-radius: 5px; width: 260px; margin-bottom: 20px;">
+        <option value="mercury">Mercury</option>
+        <option value="venus">Venus</option>
+        <option value="earth">Earth</option>
+        <option value="mars">Mars</option>
+        <option value="jupiter">Jupiter</option>
+        <option value="saturn">Saturn</option>
+        <option value="uranus">Uranus</option>
+        <option value="neptune">Neptune</option>
+    </select>
+    <button onclick="calculateWeight()">Calculate Weight</button>
+    <div id="weight-result" style="margin-top: 10px; color: #090a09;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 1.3em;">
+        Your weight result will be displayed here.
+    </div> <!-- Result will be displayed here -->
+</div>
+<script>
+    function calculateWeight() {
+        const earthWeight = parseFloat(document.getElementById("earth-weight").value);
+        const planet = document.getElementById("planet-select").value;
+
+        // Gravity on different planets relative to Earth
+        const gravity = {
+            mercury: 0.38,
+            venus: 0.91,
+            earth: 1.00,
+            mars: 0.38,
+            jupiter: 2.34,
+            saturn: 1.06,
+            uranus: 0.92,
+            neptune: 1.19,
+        };
+
+        if (!isNaN(earthWeight) && earthWeight > 0) {
+            const weightOnPlanet = (earthWeight * gravity[planet]).toFixed(2);
+            document.getElementById("weight-result").innerText = 
+                `Your weight on ${planet.charAt(0).toUpperCase() + planet.slice(1)} would be ${weightOnPlanet} kg.`;
+        } else {
+            document.getElementById("weight-result").innerText = 
+                'Please enter a valid weight on Earth.';
+        }
+    }
+</script>
+<div id="info-box" class="info-box">
+    <span class="close" onclick="closeInfo()">&times;</span>
+    <h2 id="info-title"></h2>
+    <p id="info-description"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('space_stars_bg.jpg'); /* Add space background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    margin: 20px;
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between planets and the sun */
+}
+
+.celestial-body {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+.planet-name {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+.celestial-body img {
+    width: 100%; /* make image fill the container */
+    height: auto; /* maintain aspect ratio */
+    display: block; /* remove gaps */
+}
+
+.sun {
+    width: 120px; /* size for sun */
+    height: 120px;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8);
+}
+
+.mercury {
+    width: 60px; /* size for mercury */
+    height: 60px;
+    box-shadow: 0 0 10px rgba(230, 91, 5, 0.8);
+}
+
+.venus {
+    width: 70px; /* size for venus */
+    height: 70px;
+    box-shadow: 0 0 15px rgba(238, 133, 6, 0.8);
+}
+
+.earth {
+    width: 80px; /* size for earth */
+    height: 80px;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.8);
+}
+
+.mars {
+    width: 60px; /* size for mars */
+    height: 60px;
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.8);
+}
+
+.jupiter {
+    width: 120px; /* size for jupiter */
+    height: 120px;
+    box-shadow: 0 0 30px rgba(233, 133, 26, 0.378);
+}
+
+.saturn {
+    width: 110px; /* size for saturn */
+    height: 110px;
+    box-shadow: 0 0 25px rgba(21, 21, 20, 0.8);
+}
+
+.uranus {
+    width: 80px; /* size for uranus */
+    height: 80px;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
+}
+
+.neptune {
+    width: 80px; /* size for neptune */
+    height: 80px;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
+}
+
+/* Hover effects for enlarging */
+.celestial-body:hover {
+    transform: scale(2.3); /* Enlarge by 20% on hover */
+}
+
+.info-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(7, 15, 13, 0.9);
+    padding: 70px;
+    border-radius: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    color: white;
+    z-index: 10;
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}
+#weight-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #0c0c0c;
+}
+
+button {
+    padding: 10px 15px;
+    border: white;
+    border-radius: 5px;
+    background-color: #e1e6e1; /* Green */
+    color: black;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #edf2ed; /* Darker green */
+}
+#weight-section {
+    text-align: center;
+    margin-top: 50px;
+    color: #070707;
+}
+
+#weight-result {
+    margin-top: 20px;
+    color: #090a09;
+}
+#weight-result {
+    margin-top: 20px;
+    color: black;
+    border: 2px solid #060606; /* Green border for the result box */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+}
+#weight-result {
+    margin-top: 20px;
+    color: #efedf5; /* Light text color for result */
+    border: 2px solid #fcfcfc; /* Green border for the result box */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #0d909e; 
+}
+button {
+    padding: 10px 20px;
+    background-color: #2c3232; /* Green button */
+    border: 2px solid #fcfcfc;
+    border-radius: 5px;
+    color: #f7efef; /* White text */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#earth-weight,
+#planet-select {
+    padding: 10px;
+    border: 2px solid #111819; /* Green border */
+    border-radius: 5px;
+    width: 250px; /* Set width for consistency */
+    margin-bottom: 10px;
+    background-color: #2c3232; /* Green background */
+    color: #f5f1f1;
+}
